@@ -1,0 +1,307 @@
+parsers: # array 更新于 2023
+# https://docs.cfw.lbyczf.com/contents/parser.html
+# https://github.com/Fndroid/clash_for_windows_pkg/issues/2579
+# https://github.com/Loyalsoldier/clash-rules
+# - reg: ^.*$ 匹配所有订阅，或用下面 - url: 指定订阅，二选其一
+  - reg: ^.*$
+    yaml:
+      prepend-proxy-groups:
+        - name: 节点选择
+          type: select
+          interval: 300
+          proxies:
+            - DIRECT
+        - name: 漏网之鱼
+          type: select
+          interval: 300
+          proxies:
+            - DIRECT
+            - 节点选择
+            - 自动选择
+            - 香港
+            - 台湾
+            - 新加坡
+            - 日本
+            - 美国
+            - 韩国
+            - 土耳其
+        - name: YouTube
+          type: select
+          interval: 300
+          proxies:
+            - DIRECT
+            - 节点选择
+            - 自动选择
+            - 香港
+            - 台湾
+            - 新加坡
+            - 日本
+            - 美国
+            - 韩国
+            - 土耳其
+        - name: Netflix
+          type: select
+          interval: 300
+          proxies:
+            - DIRECT
+            - 节点选择
+            - 自动选择
+            - 香港
+            - 台湾
+            - 新加坡
+            - 日本
+            - 美国
+            - 韩国
+            - 土耳其            
+        - name: Spotify
+          type: select
+          interval: 300
+          proxies:
+            - DIRECT
+            - 节点选择
+            - 自动选择
+            - 香港
+            - 台湾
+            - 新加坡
+            - 日本
+            - 美国
+            - 韩国
+            - 土耳其 
+        - name: ChatGPT
+          type: select
+          interval: 300
+          proxies:
+            - DIRECT
+            - 节点选择
+            - 自动选择
+            - 香港
+            - 台湾
+            - 新加坡
+            - 日本
+            - 美国
+            - 韩国
+            - 土耳其 
+        - name: Google
+          type: select
+          interval: 300
+          proxies:
+            - DIRECT
+            - 节点选择
+            - 自动选择
+            - 香港
+            - 台湾
+            - 新加坡
+            - 日本
+            - 美国
+            - 韩国
+            - 土耳其 
+        - name: Telegram
+          type: select
+          interval: 300
+          proxies:
+            - DIRECT
+            - 节点选择
+            - 自动选择
+            - 香港
+            - 台湾
+            - 新加坡
+            - 日本
+            - 美国
+            - 韩国
+            - 土耳其
+        - name: Disney+
+          type: select
+          interval: 300
+          proxies:
+            - DIRECT
+            - 节点选择
+            - 自动选择
+            - 香港
+            - 台湾
+            - 新加坡
+            - 日本
+            - 美国
+            - 韩国
+            - 土耳其
+        - name: GitHub
+          type: select
+          interval: 300
+          proxies:
+            - DIRECT
+            - 节点选择
+            - 自动选择
+            - 香港
+            - 台湾
+            - 新加坡
+            - 日本
+            - 美国
+            - 韩国
+            - 土耳其
+        - name: 全球直连
+          type: select
+          interval: 300
+          proxies:
+            - DIRECT
+
+        # 地区
+        - name: 香港
+          type: url-test
+          url: "http://www.gstatic.com/generate_204"
+          interval: 300
+          proxies:
+            - DIRECT
+        - name: 美国
+          type: url-test
+          url: "http://www.gstatic.com/generate_204"
+          interval: 300
+          proxies:
+            - DIRECT
+        - name: 台湾
+          type: url-test
+          url: "http://www.gstatic.com/generate_204"
+          interval: 300
+          proxies:
+            - DIRECT
+        - name: 韩国
+          type: url-test
+          url: "http://www.gstatic.com/generate_204"
+          interval: 300
+          proxies:
+            - DIRECT
+        - name: 日本
+          type: url-test
+          url: "http://www.gstatic.com/generate_204"
+          interval: 300
+          proxies:
+            - DIRECT
+        - name: 新加坡
+          type: url-test
+          url: "http://www.gstatic.com/generate_204"
+          interval: 300
+          proxies:
+            - DIRECT
+        - name: 土耳其
+          type: url-test
+          url: "http://www.gstatic.com/generate_204"
+          interval: 300
+          proxies:
+            - DIRECT
+        - name: 广告净化
+          type: select
+          interval: 300
+          proxies:
+            - DIRECT
+
+      mix-rule-providers:
+        LocalAreaNetwork:
+            type: http
+            behavior: classical
+            url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml"
+            path: ./ruleset/LocalAreaNetwork.yaml
+            interval: 86400
+        UnBan:
+            type: http
+            behavior: classical
+            url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/UnBan.yaml"
+            path: ./ruleset/UnBan.yaml
+            interval: 86400
+        BanAD:
+            type: http
+            behavior: classical
+            url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanAD.yaml"
+            path: ./ruleset/BanAD.yaml
+            interval: 86400
+        GoogleFCM:
+            type: http
+            behavior: classical
+            url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanProgramAD.yaml"
+            path: ./ruleset/GoogleFCM.yaml
+            interval: 86400
+        GitHub:
+            type: http
+            behavior: classical
+            url: "https://raw.githubusercontent.com/SmallMr/vpn/main/Rules/Clash/GitHub.yaml"
+            path: ./ruleset/GitHub.yaml
+            interval: 86400
+        GoogleCN:
+            type: http
+            behavior: classical
+            url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleFCM.yaml"
+            path: ./ruleset/GoogleCN.yaml
+            interval: 86400
+        SteamCN:
+            type: http
+            behavior: classical
+            url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleCN.yaml"
+            path: ./ruleset/SteamCN.yaml
+            interval: 86400
+        Telegram:
+            type: http
+            behavior: classical
+            url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Telegram.yaml"
+            path: ./ruleset/Telegram.yaml
+            interval: 86400
+        ChatGPT:
+            type: http
+            behavior: classical
+            url: "https://raw.githubusercontent.com/SmallMr/vpn/main/Rules/Clash/ChatGPT.yaml"
+            path: ./ruleset/ChatGPT.yaml
+            interval: 86400
+        YouTube:
+            type: http
+            behavior: classical
+            url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/YouTube.yaml"
+            path: ./ruleset/YouTube.yaml
+            interval: 86400
+        Netflix:
+            type: http
+            behavior: classical
+            url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Netflix.yaml"
+            path: ./ruleset/Netflix.yaml
+            interval: 86400
+        Spotify:
+            type: http
+            behavior: classical
+            url: "https://raw.githubusercontent.com/SmallMr/vpn/main/Rules/Clash/Spotify.yaml"
+            path: ./ruleset/Spotify.yaml
+            interval: 86400
+        Disney:
+            type: http
+            behavior: classical
+            url: "https://raw.githubusercontent.com/SmallMr/vpn/main/Rules/Clash/Disney.yaml"
+            path: ./ruleset/Disney.yaml
+            interval: 86400
+        GFWlist:
+            type: http
+            behavior: classical
+            url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyGFWlist.yaml"
+            path: ./ruleset/GFWlist.yaml
+            interval: 86400
+        ChinaDomain:
+            type: http
+            behavior: classical
+            url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml"
+            path: ./ruleset/ChinaDomain.yaml
+            interval: 86400
+        ChinaCompanyIp:
+            type: http
+            behavior: classical
+            url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaCompanyIp.yaml"
+            path: ./ruleset/ChinaCompanyIp.yaml
+            interval: 86400
+        Download:
+            type: http
+            behavior: classical
+            url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Download.yaml"
+            path: ./ruleset/Download.yaml
+            interval: 86400
+    
+      commands:
+        # 向策略组添加节点
+        - proxy-groups.香港.proxies.1+[]proxyNames|((🇭🇰)|(港)|(HK)|(Hong))
+        - proxy-groups.美国.proxies.1+[]proxyNames|((🇺🇸)|(美)|(States)|(US))
+        - proxy-groups.台湾.proxies.1+[]proxyNames|((🇨🇳)|(台)|(Tai)|(TW))
+        - proxy-groups.韩国.proxies.1+[]proxyNames|((🇰🇷)|(韩)|(KR))
+        - proxy-groups.日本.proxies.1+[]proxyNames|((🇯🇵)|(日)|(Japan)|(JP))
+        - proxy-groups.新加坡.proxies.1+[]proxyNames|((🇸🇬)|(坡)|(Singapore)|(SG))
+        - proxy-groups.土耳其.proxies.1+[]proxyNames|((🇹🇷)|(土)|(土耳其))
