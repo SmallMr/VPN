@@ -1,7 +1,7 @@
-parsers: # array 更新于 2023
-# https://docs.cfw.lbyczf.com/contents/parser.html
-# https://github.com/Fndroid/clash_for_windows_pkg/issues/2579
-# https://github.com/Loyalsoldier/clash-rules
+parsers:
+# 文档：https://docs.cfw.lbyczf.com/contents/parser.html
+# 规则集、软件下载、示例：https://github.com/Loyalsoldier/clash-rules
+# 详细示例：https://github.com/Fndroid/clash_for_windows_pkg/issues/2193
 # - reg: ^.*$ 匹配所有订阅，或用下面 - url: 指定订阅，二选其一
   - reg: ^.*$
     yaml:
@@ -340,8 +340,8 @@ parsers: # array 更新于 2023
 
       commands:
         # 向策略组添加节点
-        - proxy-groups.手动切换.proxies.1+[]proxyNames|(.*)
-        - proxy-groups.自动选择.proxies.1+[]proxyNames|(.*)
+        - proxy-groups.手动切换.proxies.1+[]proxyNames
+        - proxy-groups.自动选择.proxies=[]proxyNames
         - proxy-groups.香港.proxies.1+[]proxyNames|((🇭🇰)|(港)|(HK)|(Hong))
         - proxy-groups.美国.proxies.1+[]proxyNames|((🇺🇸)|(美)|(States)|(US))
         - proxy-groups.台湾.proxies.1+[]proxyNames|((🇨🇳)|(台)|(Tai)|(TW))
