@@ -6,11 +6,28 @@ parsers: # array 更新于 2023
   - reg: ^.*$
     yaml:
       prepend-proxy-groups:
+        - name: 手动切换
+          type: select
+          interval: 300
+          proxies:
+            - DIRECT
         - name: 节点选择
           type: select
           interval: 300
           proxies:
             - DIRECT
+            - 自动选择
+            - 香港
+            - 台湾
+            - 新加坡
+            - 日本
+            - 美国
+            - 韩国
+            - 土耳其 
+        - name: 自动选择
+          type: url-test
+          url: "http://www.gstatic.com/generate_204"
+          interval: 300
         - name: 漏网之鱼
           type: select
           interval: 300
@@ -142,6 +159,9 @@ parsers: # array 更新于 2023
           interval: 300
           proxies:
             - DIRECT
+            - 手动切换
+            - 节点选择
+            - 自动选择
 
         # 地区
         - name: 香港
@@ -191,113 +211,137 @@ parsers: # array 更新于 2023
           interval: 300
           proxies:
             - DIRECT
+            - REJECT
 
       mix-rule-providers:
         LocalAreaNetwork:
             type: http
             behavior: classical
-            url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml"
+            url: "http://localhost/clash/ACL4SSR/LocalAreaNetwork.yaml"
             path: ./ruleset/LocalAreaNetwork.yaml
             interval: 86400
         UnBan:
             type: http
             behavior: classical
-            url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/UnBan.yaml"
+            url: "http://localhost/clash/ACL4SSR/UnBan.yaml"
             path: ./ruleset/UnBan.yaml
             interval: 86400
         BanAD:
             type: http
             behavior: classical
-            url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanAD.yaml"
+            url: "http://localhost/clash/ACL4SSR/BanAD.yaml"
             path: ./ruleset/BanAD.yaml
             interval: 86400
         GoogleFCM:
             type: http
             behavior: classical
-            url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanProgramAD.yaml"
+            url: "http://localhost/clash/ACL4SSR/BanProgramAD.yaml"
             path: ./ruleset/GoogleFCM.yaml
             interval: 86400
         GitHub:
             type: http
             behavior: classical
-            url: "https://raw.githubusercontent.com/SmallMr/vpn/main/Rules/Clash/GitHub.yaml"
+            url: "http://localhost/clash/SmallMr/GitHub.yaml"
             path: ./ruleset/GitHub.yaml
             interval: 86400
         GoogleCN:
             type: http
             behavior: classical
-            url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleFCM.yaml"
+            url: "http://localhost/clash/ACL4SSR/GoogleFCM.yaml"
             path: ./ruleset/GoogleCN.yaml
             interval: 86400
         SteamCN:
             type: http
             behavior: classical
-            url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleCN.yaml"
+            url: "http://localhost/clash/ACL4SSR/GoogleCN.yaml"
             path: ./ruleset/SteamCN.yaml
             interval: 86400
         Telegram:
             type: http
             behavior: classical
-            url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Telegram.yaml"
+            url: "http://localhost/clash/ACL4SSR/Telegram.yaml"
             path: ./ruleset/Telegram.yaml
             interval: 86400
         ChatGPT:
             type: http
             behavior: classical
-            url: "https://raw.githubusercontent.com/SmallMr/vpn/main/Rules/Clash/ChatGPT.yaml"
+            url: "http://localhost/clash/SmallMr/ChatGPT.yaml"
             path: ./ruleset/ChatGPT.yaml
             interval: 86400
         YouTube:
             type: http
             behavior: classical
-            url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/YouTube.yaml"
+            url: "http://localhost/clash/ACL4SSR/YouTube.yaml"
             path: ./ruleset/YouTube.yaml
             interval: 86400
         Netflix:
             type: http
             behavior: classical
-            url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Netflix.yaml"
+            url: "http://localhost/clash/ACL4SSR/Netflix.yaml"
             path: ./ruleset/Netflix.yaml
             interval: 86400
         Spotify:
             type: http
             behavior: classical
-            url: "https://raw.githubusercontent.com/SmallMr/vpn/main/Rules/Clash/Spotify.yaml"
+            url: "http://localhost/clash/SmallMr/Spotify.yaml"
             path: ./ruleset/Spotify.yaml
             interval: 86400
         Disney:
             type: http
             behavior: classical
-            url: "https://raw.githubusercontent.com/SmallMr/vpn/main/Rules/Clash/Disney.yaml"
+            url: "http://localhost/clash/SmallMr/Disney.yaml"
             path: ./ruleset/Disney.yaml
             interval: 86400
         GFWlist:
             type: http
             behavior: classical
-            url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyGFWlist.yaml"
+            url: "http://localhost/clash/ACL4SSR/ProxyGFWlist.yaml"
             path: ./ruleset/GFWlist.yaml
             interval: 86400
         ChinaDomain:
             type: http
             behavior: classical
-            url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml"
+            url: "http://localhost/clash/ACL4SSR/ChinaDomain.yaml"
             path: ./ruleset/ChinaDomain.yaml
             interval: 86400
-        ChinaCompanyIp:
-            type: http
-            behavior: classical
-            url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaCompanyIp.yaml"
-            path: ./ruleset/ChinaCompanyIp.yaml
-            interval: 86400
+        # ChinaCompanyIp:
+        #     type: http
+        #     behavior: classical
+        #     url: "http://localhost/clash/ACL4SSR/ChinaCompanyIp.yaml"
+        #     path: ./ruleset/ChinaCompanyIp.yaml
+        #     interval: 86400
         Download:
             type: http
             behavior: classical
-            url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Download.yaml"
+            url: "http://localhost/clash/ACL4SSR/Download.yaml"
             path: ./ruleset/Download.yaml
             interval: 86400
     
+      prepend-rules:
+        - RULE-SET,LocalAreaNetwork,全球直连
+        - RULE-SET,UnBan,全球直连
+        - RULE-SET,BanAD,广告净化
+        - RULE-SET,GoogleFCM,Google
+        - RULE-SET,GitHub,GitHub
+        - RULE-SET,GoogleCN,全球直连
+        - RULE-SET,SteamCN,全球直连
+        - RULE-SET,Telegram,Telegram
+        - RULE-SET,ChatGPT,ChatGPT
+        - RULE-SET,YouTube,YouTube
+        - RULE-SET,Netflix,Netflix
+        - RULE-SET,Spotify,Spotify
+        - RULE-SET,Disney,Disney+
+        - RULE-SET,GFWlist,节点选择
+        - RULE-SET,ChinaDomain,DIRECT
+        # - RULE-SET,ChinaCompanyIp,DIRECT
+        - RULE-SET,Download,DIRECT
+        - GEOIP,CN,全球直连
+        - MATCH,漏网之鱼
+
       commands:
         # 向策略组添加节点
+        - proxy-groups.手动切换.proxies.1+[]proxyNames|(.*)
+        - proxy-groups.自动选择.proxies.1+[]proxyNames|(.*)
         - proxy-groups.香港.proxies.1+[]proxyNames|((🇭🇰)|(港)|(HK)|(Hong))
         - proxy-groups.美国.proxies.1+[]proxyNames|((🇺🇸)|(美)|(States)|(US))
         - proxy-groups.台湾.proxies.1+[]proxyNames|((🇨🇳)|(台)|(Tai)|(TW))
@@ -305,3 +349,14 @@ parsers: # array 更新于 2023
         - proxy-groups.日本.proxies.1+[]proxyNames|((🇯🇵)|(日)|(Japan)|(JP))
         - proxy-groups.新加坡.proxies.1+[]proxyNames|((🇸🇬)|(坡)|(Singapore)|(SG))
         - proxy-groups.土耳其.proxies.1+[]proxyNames|((🇹🇷)|(土)|(土耳其))
+
+    code: |
+      module.exports.parse = async (raw, { axios, yaml, notify, console }, { name, url, interval, selected }) => {
+        const rawObj  = yaml.parse(raw)
+
+        //清空订阅自带的所有规则和代理组
+        rawObj.rules = []
+        rawObj['proxy-groups'] = []
+
+        return yaml.stringify(rawObj )
+      }
