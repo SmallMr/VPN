@@ -46,9 +46,6 @@ parsers:
           type: select
           interval: 300
           proxies:
-            - DIRECT
-            - 节点选择
-            - 自动选择
             - 香港
             - 台湾
             - 新加坡
@@ -60,9 +57,6 @@ parsers:
           type: select
           interval: 300
           proxies:
-            - DIRECT
-            - 节点选择
-            - 自动选择
             - 香港
             - 台湾
             - 新加坡
@@ -168,44 +162,30 @@ parsers:
           type: url-test
           url: "http://www.gstatic.com/generate_204"
           interval: 300
-          proxies:
-            - DIRECT
         - name: 美国
           type: url-test
           url: "http://www.gstatic.com/generate_204"
           interval: 300
-          proxies:
-            - DIRECT
         - name: 台湾
           type: url-test
           url: "http://www.gstatic.com/generate_204"
           interval: 300
-          proxies:
-            - DIRECT
         - name: 韩国
           type: url-test
           url: "http://www.gstatic.com/generate_204"
           interval: 300
-          proxies:
-            - DIRECT
         - name: 日本
           type: url-test
           url: "http://www.gstatic.com/generate_204"
           interval: 300
-          proxies:
-            - DIRECT
         - name: 新加坡
           type: url-test
           url: "http://www.gstatic.com/generate_204"
           interval: 300
-          proxies:
-            - DIRECT
         - name: 土耳其
           type: url-test
           url: "http://www.gstatic.com/generate_204"
           interval: 300
-          proxies:
-            - DIRECT
         - name: 广告净化
           type: select
           interval: 300
@@ -342,13 +322,13 @@ parsers:
         # 向策略组添加节点
         - proxy-groups.手动切换.proxies.1+[]proxyNames
         - proxy-groups.自动选择.proxies=[]proxyNames
-        - proxy-groups.香港.proxies.1+[]proxyNames|((🇭🇰)|(港)|(HK)|(Hong))
-        - proxy-groups.美国.proxies.1+[]proxyNames|((🇺🇸)|(美)|(States)|(US))
-        - proxy-groups.台湾.proxies.1+[]proxyNames|((🇨🇳)|(台)|(Tai)|(TW))
-        - proxy-groups.韩国.proxies.1+[]proxyNames|((🇰🇷)|(韩)|(KR))
-        - proxy-groups.日本.proxies.1+[]proxyNames|((🇯🇵)|(日)|(Japan)|(JP))
-        - proxy-groups.新加坡.proxies.1+[]proxyNames|((🇸🇬)|(坡)|(Singapore)|(SG))
-        - proxy-groups.土耳其.proxies.1+[]proxyNames|((🇹🇷)|(土)|(土耳其))
+        - proxy-groups.香港.proxies.0+[]proxyNames|((🇭🇰)|(港)|(HK)|(Hong))
+        - proxy-groups.美国.proxies.0+[]proxyNames|((🇺🇸)|(美)|(States)|(US))
+        - proxy-groups.台湾.proxies.0+[]proxyNames|((🇨🇳)|(台)|(Tai)|(TW))
+        - proxy-groups.韩国.proxies.0+[]proxyNames|((🇰🇷)|(韩)|(KR))
+        - proxy-groups.日本.proxies.0+[]proxyNames|((🇯🇵)|(日)|(Japan)|(JP))
+        - proxy-groups.新加坡.proxies.0+[]proxyNames|((🇸🇬)|(坡)|(Singapore)|(SG))
+        - proxy-groups.土耳其.proxies.0+[]proxyNames|((🇹🇷)|(土)|(土耳其))
 
     code: |
       module.exports.parse = async (raw, { axios, yaml, notify, console }, { name, url, interval, selected }) => {
