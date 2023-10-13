@@ -284,12 +284,12 @@ parsers:
             url: "http://localhost/clash/ACL4SSR/ChinaDomain.yaml"
             path: ./ruleset/ChinaDomain.yaml
             interval: 86400
-        # ChinaCompanyIp:
-        #     type: http
-        #     behavior: classical
-        #     url: "http://localhost/clash/ACL4SSR/ChinaCompanyIp.yaml"
-        #     path: ./ruleset/ChinaCompanyIp.yaml
-        #     interval: 86400
+        ChinaCompanyIp:
+            type: http
+            behavior: ipcidr
+            url: "http://localhost/clash/ACL4SSR/ChinaCompanyIp.yaml"
+            path: ./ruleset/ChinaCompanyIp.yaml
+            interval: 86400
         Download:
             type: http
             behavior: classical
@@ -313,7 +313,7 @@ parsers:
         - RULE-SET,Disney,Disney+
         - RULE-SET,GFWlist,节点选择
         - RULE-SET,ChinaDomain,DIRECT
-        # - RULE-SET,ChinaCompanyIp,DIRECT
+        - RULE-SET,ChinaCompanyIp,DIRECT
         - RULE-SET,Download,DIRECT
         - GEOIP,CN,全球直连
         - MATCH,漏网之鱼
