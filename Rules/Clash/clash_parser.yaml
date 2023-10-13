@@ -215,7 +215,7 @@ parsers:
         GoogleFCM:
             type: http
             behavior: classical
-            url: "http://localhost/clash/ACL4SSR/BanProgramAD.yaml"
+            url: "http://localhost/clash/ACL4SSR/GoogleFCM.yaml"
             path: ./ruleset/GoogleFCM.yaml
             interval: 86400
         GitHub:
@@ -227,13 +227,13 @@ parsers:
         GoogleCN:
             type: http
             behavior: classical
-            url: "http://localhost/clash/ACL4SSR/GoogleFCM.yaml"
+            url: "http://localhost/clash/ACL4SSR/GoogleCN.yaml"
             path: ./ruleset/GoogleCN.yaml
             interval: 86400
         SteamCN:
             type: http
             behavior: classical
-            url: "http://localhost/clash/ACL4SSR/GoogleCN.yaml"
+            url: "http://localhost/clash/ACL4SSR/SteamCN.yaml"
             path: ./ruleset/SteamCN.yaml
             interval: 86400
         Telegram:
